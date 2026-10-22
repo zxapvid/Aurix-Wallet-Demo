@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Aurix">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0f15">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFb0lEQVR42u2dzW3cMBCFZcI3B/DJJ1eRElxMAJdkIMW4hFThDlJADgaCAHbWK2n+3sz3zruSOPz4hiIp8ubu/mFD6DMtQoCAAwEHAg4EHAg4EHAg4EDAgYADAQdCwIGAAwEHAg4EHAg4EHAg4EDAgYADIeBAwIGO63ZmsX///L73L99+/JoWpZshHzUdoAFWOsNhDsQ0ULrBEQbEBFD6wJGORT9E5OEoxUQzSoThKI5FA0Qk4RDCQhoRMThEsRBFRAaOBljIIbIggxKpOkc/LIQsZEEGZdSDYwIZxUtaMa3MwaJ4ilmQQdk14JhMRsEILOICH9XhgIyC0VjEAj7qwgEZZSOzIAM+/qfMcY50Mh6fX6/52dvLU+5zZo1/pMGRQsaVNBRkJYWPHDiCyTBhIp2SeD4S4Agjw4mJREqC+ej5xVsYFv/eLr1rIu8c3rYRjEW8i0SaRygcrmSkYxGGSBgfCzLknies09ZhC4ZqZFR+qoppxQn28xXw7v8fr/M3L1jdQjG5RMBRioyPVXXhOrt+3I8P1VfZvZVkVT3HHOXx+VXxRdfdOTxsY1fFXK6VLy918u/e/uFqHquxZ7y9PHm31123kOui+jqHuW3YzqNWvloF81j9PCMru9syVEFLxTbMybi+knYlsng+/MbEVhvPCOhhGPZCJPxjSdiGeSrZWzdZb8650V4NbKPmEMKXT1XfPNZAMo7VyoF/qfPhAoeVy4l6RgofHpll3Mb4ZyqjwURrMhzYRhvzUHWOY2ScB67UrOzQDunlOlCMteEEHm8rafXXbxF5FThM0p6TbVi1zsPXCTAP224HzvFJzWEeknCk24areQAHYwkyZbeEw3uyzc82Pl7Zb3DC2zwMa4E+BxKBw8NXDw98pUyblcosMs7R6Q1CpSzN08rJ8fIGazJKwMHWb3VkVRedncNkXneyeSyhuhyiOnHQcA6PtYDXX9PDPCT6pIxzIOA413BnTsX1hCM+bbfsME10jmM2MNA8GsKR1Yj7mQcdUjQGDtcPGqYNiOEcaAYcAd9BjTIPnAOJw3FNcwz7fNLEPEZv3sJAQoM4NEkrwV9dD+l5mMGRdUgd8quLEacmeBj1BPNYbQjoRDNwVGniQ552Ylqp3ArV3c4SDu8+acHVeGF7GabUQjnn2BXu+k0z/cyNQWlF3ai1nn81DnRMQ2z8TmsMh0nCU9xb7TzNJijbdvsWtoF5iMHRzzwUN8/suZ4jPtYtp5Tt4bBKe3Nm8K1Kaj7OtIg15hEKB+bRwDYEnEPro9Zmn+CuOW2LclWBI2VhWJHTIeNv6hTtVpu3VBj/KH4ychU4bHGW4COFDI4rF+Cjk2e86+bu/sH1BuZbUJofHi79SK59Oz04tkoraNKfRBuOCnx4VEyFA8y9XwlV4diSDmosdTpkBziq8bGr2gJuUZOMODg2z83Ryy7v8OvuxIwxdpiVrfly2GDUPw4OV9ir1YTr84RNTcSlFe/kUiTFeGMaOWkVDccWcjJLCiIB7hU8nXm7ddR7PYUh0nVRQYJzbOHHOjlREsxE/CqIHDi2pGO/TCjptGKjKBxbgWPhVOZRs7bUyoRj49jAwmRs6YNgbDNXOT5rePkhozQc8FE2JotYQEZ1OOCjYBwWcSECGnAM56Na2ZPHOS5o1BBIzSaxiBcl1YNjCB+Vy1g3rbRPMfXRX8SREmk7RycLEQJdDA5pROT8TxIOOURE06IwHBKISPeW5OGoSUmPHnQfOIog0unFqhscKaB0HazrDIcrKBNGb6fAcZ6VgdPFQ+FA12gRAgQcCDgQcCDgQMCBgAMBBwIOBBwIOBACDgQcCDgQcCDgQMCBgAMBBwIOBBwIAQf6Un8AfySo9chsGg4AAAAASUVORK5CYII=">
+<title>Aurix Demo-Wallet</title>
+<style>
+:root{
+  --bg:#0b0f15;--panel:#141a23;--panel2:#1b2330;--line:#243044;
+  --text:#ece9e1;--muted:#8794a8;--gold:#ffb547;--gold2:#ff8f3d;
+  --up:#3ddc97;--down:#ff6b6b;
+}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  background:radial-gradient(900px 520px at 50% -8%,#1c2740 0,#0b0f15 62%);
+  color:var(--text);
+  font:15px/1.4 "Avenir Next","Segoe UI Variable","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  font-variant-numeric:tabular-nums;
+  display:flex;justify-content:center;
+}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+input,select{font:inherit;color:var(--text)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+.app{position:relative;width:100%;max-width:440px;height:100dvh;display:flex;flex-direction:column;background:rgba(11,15,21,.72);overflow:hidden}
+@media(min-width:520px){.app{height:min(880px,96dvh);margin:2dvh 0;border:1px solid var(--line);border-radius:30px;box-shadow:0 30px 90px rgba(0,0,0,.55)}}
+
+.tag{display:inline-block;margin-left:6px;padding:0 6px;border-radius:99px;border:1px solid #4a3716;background:#2a2113;color:var(--gold);font-size:10px;font-weight:600;line-height:15px;vertical-align:1px}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 18px 4px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:32px;height:32px}
+.brand b{font-size:17px;letter-spacing:.01em}
+.brand small{display:block;margin-top:-2px}
+.pill{font-size:11.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:4px 10px}
+.pill.live{color:var(--up)}
+
+main{flex:1;overflow-y:auto;padding:6px 16px 22px;scrollbar-width:thin}
+.ttl{font-size:24px;font-weight:700;margin:12px 2px 14px}
+.hero{text-align:center;padding:20px 0 12px}
+.lbl{color:var(--muted);font-size:13px}
+.bal{font-size:40px;font-weight:700;letter-spacing:-.025em;margin:4px 0 2px}
+.delta{font-size:14px;font-weight:600}
+.up{color:var(--up)}.dn{color:var(--down)}
+
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0 20px}
+.actions.three{grid-template-columns:repeat(3,1fr)}
+.ab{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12.5px;color:var(--muted)}
+.ab i{font-style:normal;width:52px;height:52px;border-radius:18px;background:var(--panel2);border:1px solid var(--line);display:grid;place-items:center;font-size:21px;color:var(--text);transition:background .15s,color .15s}
+.ab:active i{background:var(--gold);color:#1a1205}
+
+h3{font-size:14px;color:var(--muted);font-weight:600;margin:8px 2px 10px}
+.list{display:flex;flex-direction:column;gap:8px}
+.coin{display:grid;grid-template-columns:40px 1fr 64px auto;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px}
+button.coin:active{background:var(--panel2)}
+.coin.act{grid-template-columns:36px 1fr auto}
+.nm{display:flex;flex-direction:column;min-width:0}
+.nm b,.vl b{font-weight:600}
+small,.sm{font-size:12.5px;color:var(--muted)}
+.vl{display:flex;flex-direction:column;align-items:flex-end}
+.vl small.up{color:var(--up)}.vl small.dn{color:var(--down)}
+.ic{display:grid;place-items:center;border-radius:50%;color:#fff;font-weight:700;flex:none}
+.sp svg{display:block;width:64px;height:28px}
+.link{display:block;margin:18px auto 0;color:var(--muted);font-size:13px;text-decoration:underline;text-underline-offset:3px}
+.empty{color:var(--muted);text-align:center;padding:26px 0}
+
+.dh{display:flex;align-items:center;justify-content:space-between;margin:6px 0 4px}
+.back{width:36px;height:36px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:22px;line-height:1}
+.row{display:flex;align-items:center;gap:10px}
+.between{justify-content:space-between}
+.dp{text-align:center;padding:8px 0 2px}
+.chart{position:relative;height:190px;margin:8px 0 4px;touch-action:pan-y;user-select:none}
+.chart svg{width:100%;height:100%;display:block}
+.cl{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.35);display:none}
+.cd{position:absolute;width:11px;height:11px;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-50%);display:none}
+.ld{height:100%;display:grid;place-items:center;color:var(--muted)}
+.rng{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 16px}
+.rng button{padding:8px 0;border-radius:12px;color:var(--muted);background:var(--panel);border:1px solid var(--line);font-weight:600;font-size:13px}
+.rng button.on{background:var(--gold);color:#1a1205;border-color:var(--gold)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:16px}
+.big2{font-size:22px}
+
+.swcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px}
+.swcard input{flex:1;min-width:0;background:none;border:0;font-size:28px;font-weight:700;padding:6px 0}
+.big{flex:1;font-size:28px;font-weight:700;padding:6px 0;overflow:hidden;text-overflow:ellipsis}
+.swcard select{width:auto}
+.flip{display:block;margin:-6px auto;position:relative;z-index:1;width:40px;height:40px;border-radius:50%;background:var(--panel2);border:3px solid var(--bg);font-size:17px}
+.info{margin:14px 2px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+
+select,.sh input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:4px}
+.swcard select{margin:0}
+label{display:block;font-size:13px;color:var(--muted);margin:14px 2px 6px}
+.chip{background:var(--panel2);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13px;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.primary{width:100%;margin-top:16px;padding:15px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1a1205;font-weight:700;font-size:16px}
+.primary:disabled{background:var(--panel2);color:var(--muted);cursor:not-allowed}
+.secondary{width:100%;margin-top:10px;padding:14px;border-radius:16px;background:var(--panel2);border:1px solid var(--line);font-weight:600}
+.c{text-align:center;margin-top:10px}
+
+nav{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);background:rgba(11,15,21,.94);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+nav button{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);font-size:11.5px;padding:6px}
+nav button.on{color:var(--gold)}
+nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.bk{position:absolute;inset:0;background:rgba(0,0,0,.6);z-index:5}
+.sh{position:absolute;left:0;right:0;bottom:0;z-index:6;background:var(--panel);border-top:1px solid var(--line);border-radius:26px 26px 0 0;padding:10px 18px 24px;max-height:90%;overflow:auto;animation:sheet .2s ease-out}
+.sh h3{font-size:18px;color:var(--text);margin:8px 0 2px}
+.grab{width:40px;height:4px;border-radius:4px;background:var(--line);margin:0 auto 8px}
+@keyframes sheet{from{transform:translateY(24px);opacity:0}}
+.qr{width:190px;height:190px;margin:16px auto 10px;border-radius:16px;overflow:hidden;background:#fff}
+.qr svg{display:block;width:100%;height:100%}
+.addr{word-break:break-all;text-align:center;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--text);background:var(--panel2);border-radius:12px;padding:10px}
+
+#toast{position:absolute;left:50%;bottom:84px;transform:translate(-50%,12px);background:var(--text);color:#10151d;font-weight:600;font-size:13.5px;padding:10px 16px;border-radius:99px;opacity:0;pointer-events:none;transition:.2s;z-index:9;white-space:nowrap}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="hd">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff8f3d"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#lg)"/><circle cx="16" cy="16" r="10" fill="none" stroke="#1a1205" stroke-width="2.4"/><path d="M11 21 16 9l5 12" fill="none" stroke="#1a1205" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>Aurix</b><small>Konto 1<span class="tag">Demo</span></small></div>
+    </div>
+    <span class="pill" id="pill">Simulierte Kurse</span>
+  </div>
+  <main id="main"></main>
+  <nav id="nav">
+    <button data-v="home" onclick="go('home')"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Portfolio</button>
+    <button data-v="swap" onclick="go('swap')"><svg viewBox="0 0 24 24"><path d="M4 8h14l-3-3M20 16H6l3 3"/></svg>Tauschen</button>
+    <button data-v="activity" onclick="go('activity')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Aktivität</button>
+  </nav>
+  <div id="sheet"></div>
+  <div id="toast"></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const COINS=[
+ {sym:'BTC',id:'bitcoin',name:'Bitcoin',color:'#f7931a',glyph:'₿',ref:100000,vol:.004},
+ {sym:'ETH',id:'ethereum',name:'Ethereum',color:'#627eea',glyph:'Ξ',ref:3500,vol:.005},
+ {sym:'USDT',id:'tether',name:'Tether',color:'#26a17b',glyph:'₮',ref:1,vol:.00006},
+ {sym:'BNB',id:'binancecoin',name:'BNB',color:'#d9a21b',glyph:'B',ref:900,vol:.004},
+ {sym:'SOL',id:'solana',name:'Solana',color:'#8a45f0',glyph:'◎',ref:180,vol:.007},
+ {sym:'XRP',id:'ripple',name:'XRP',color:'#4d5b6e',glyph:'✕',ref:2.3,vol:.007},
+ {sym:'DOGE',id:'dogecoin',name:'Dogecoin',color:'#b89b2a',glyph:'Ð',ref:.2,vol:.009},
+ {sym:'ADA',id:'cardano',name:'Cardano',color:'#2a6df4',glyph:'₳',ref:.65,vol:.008}
+];
+const BY={};COINS.forEach(c=>BY[c.sym]=c);
+const KEY='aurix_demo_v1';
+const UP='#3ddc97',DN='#ff6b6b';
+
+/* ---------- helpers ---------- */
+function hash(s){let h=2166136261;for(const ch of s){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){let a=seed>>>0;return()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const nf=(v,a,b)=>new Intl.NumberFormat('de-DE',{minimumFractionDigits:a,maximumFractionDigits:b}).format(v);
+const usd=v=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'USD'}).format(v);
+const usdp=v=>v>=1?usd(v):new Intl.NumberFormat('de-DE',{style:'currency',currency:'USD',minimumFractionDigits:4,maximumFractionDigits:4}).format(v);
+const amt=v=>nf(v,0,v>=1000?2:v>=1?4:v>=0.01?6:8);
+const pct=v=>(v>=0?'+':'−')+nf(Math.abs(v),2,2)+' %';
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function num(s){s=String(s).trim().replace(/\s/g,'');if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');const n=parseFloat(s);return isFinite(n)&&n>0?n:0}
+const when=ts=>new Date(ts).toLocaleString('de-DE',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+const short=a=>a.length>14?a.slice(0,7)+'…'+a.slice(-5):a;
+const ico=(c,s=40)=>`<span class="ic" style="width:${s}px;height:${s}px;background:${c.color};font-size:${Math.round(s*.45)}px">${c.glyph}</span>`;
+const coinOpts=sel=>COINS.map(c=>`<option value="${c.sym}"${c.sym===sel?' selected':''}>${c.name} (${c.sym})</option>`).join('');
+function addrOf(sym){const r=rng(hash(sym+'addr'));const al='abcdefghjkmnpqrstuvwxyz023456789';let s='demo1';for(let i=0;i<34;i++)s+=al[Math.floor(r()*al.length)];return s}
+
+/* ---------- state ---------- */
+function defaults(){
+  const bal={BTC:.25,ETH:3.2,SOL:42,USDT:1500,BNB:5,XRP:900,DOGE:5000,ADA:1200};
+  const n=Date.now();
+  return{bal,act:Object.keys(bal).map((s,i)=>({t:'fund',sym:s,a:bal[s],ts:n-(i+1)*3600e3*5}))};
+}
+function load(){try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);if(o&&o.bal&&Array.isArray(o.act))return o}}catch(e){}return defaults()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+let S=load();
+COINS.forEach(c=>{if(typeof S.bal[c.sym]!=='number')S.bal[c.sym]=0});
+function addAct(o){o.ts=Date.now();S.act.unshift(o);if(S.act.length>200)S.act.length=200}
+
+/* ---------- market ---------- */
+const M={live:false,p:{},sp:{}};
+let cache={};
+function seriesGen(sym,tag,n,end,vol){
+  const r=rng(hash(sym+tag));const w=[];let v=0;
+  for(let i=0;i<n;i++){v+=(r()-.5)*2*vol;w.push(v)}
+  const l=w[n-1];return w.map(x=>end*Math.exp(x-l));
+}
+function simInit(){
+  COINS.forEach(c=>{
+    const r=rng(hash(c.sym+'p'));
+    const usdv=c.ref*(1+(r()-.5)*.03);
+    const sp=seriesGen(c.sym,'7',168,usdv,c.vol);
+    M.p[c.sym]={usd:usdv,chg:(sp[167]/sp[143]-1)*100};
+    M.sp[c.sym]=sp;
+  });
+}
+async function fetchMarkets(full){
+  try{
+    const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),8000);
+    const url='https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids='+COINS.map(c=>c.id).join(',')+'&sparkline=true&price_change_percentage=24h';
+    const res=await fetch(url,{signal:ctrl.signal});clearTimeout(to);
+    if(!res.ok)throw 0;
+    const j=await res.json();
+    if(!Array.isArray(j)||j.length<COINS.length)throw 0;
+    j.forEach(x=>{
+      const c=COINS.find(k=>k.id===x.id);if(!c||!x.current_price)return;
+      M.p[c.sym]={usd:x.current_price,chg:x.price_change_percentage_24h||0};
+      if(x.sparkline_in_7d&&x.sparkline_in_7d.price&&x.sparkline_in_7d.price.length>20)M.sp[c.sym]=x.sparkline_in_7d.price;
+    });
+    M.live=true;
+  }catch(e){}
+  updatePill();
+  if(full&&!SO)render();else liveUpd();
+}
+function updatePill(){const p=$('#pill');p.textContent=M.live?'Live-Kurse':'Simulierte Kurse';p.className='pill'+(M.live?' live':'')}
+
+const RANGES=[['1T',1],['1W',7],['1M',30],['1J',365]];
+const RLBL={1:'24 Std.',7:'7 Tage',30:'30 Tage',365:'1 Jahr'};
+async function getSeries(sym,days){
+  const c=BY[sym],end=M.p[sym].usd,k=sym+days+(M.live?'L':'S');
+  if(cache[k]&&Date.now()-cache[k].ts<300000)return cache[k].v;
+  let v=null;
+  if(M.live){
+    if(days===7)v=M.sp[sym];
+    else try{
+      const res=await fetch('https://api.coingecko.com/api/v3/coins/'+c.id+'/market_chart?vs_currency=usd&days='+days);
+      if(res.ok){const j=await res.json();v=j.prices.map(x=>x[1])}
+    }catch(e){}
+  }
+  if(!v||v.length<10){
+    const scale={1:.6,7:1,30:1.8,365:4}[days],n={1:96,7:168,30:120,365:150}[days];
+    v=seriesGen(sym,'r'+days,n,end,c.vol*scale);
+  }
+  if(v.length>220){const st=Math.ceil(v.length/200),l=v[v.length-1];v=v.filter((_,i)=>i%st===0);v.push(l)}
+  v=v.slice();v[v.length-1]=end;
+  cache[k]={v,ts:Date.now()};
+  return v;
+}
+
+/* ---------- portfolio math ---------- */
+function total(){
+  let v=0,d=0;
+  COINS.forEach(c=>{const p=M.p[c.sym],x=(S.bal[c.sym]||0)*p.usd;v+=x;d+=x-x/(1+p.chg/100)});
+  return{v,d,p:v-d>0?d/(v-d)*100:0};
+}
+const deltaTxt=t=>(t.d>=0?'+':'−')+usd(Math.abs(t.d))+'  ('+pct(t.p)+')  ·  24 Std.';
+
+/* ---------- svg bits ---------- */
+function spark(v,up){
+  const st=Math.max(1,Math.floor(v.length/40)),a=v.filter((_,i)=>i%st===0);
+  const mn=Math.min(...a),mx=Math.max(...a),rg=(mx-mn)||1;
+  const d=a.map((x,i)=>(i?'L':'M')+(i/(a.length-1)*64).toFixed(1)+' '+(26-(x-mn)/rg*24).toFixed(1)).join('');
+  return `<svg viewBox="0 0 64 28" preserveAspectRatio="none"><path d="${d}" fill="none" style="stroke:${up?UP:DN}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+const CW=360,CH=190,CP=8;
+function chartSvg(v,col){
+  const mn=Math.min(...v),mx=Math.max(...v),rg=(mx-mn)||1,n=v.length-1;
+  const X=i=>CP+(CW-2*CP)*i/n,Y=x=>CP+(CH-2*CP)*(1-(x-mn)/rg);
+  const d=v.map((x,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(x).toFixed(1)).join('');
+  return `<svg viewBox="0 0 ${CW} ${CH}" preserveAspectRatio="none"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".32"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs><path d="${d}L${X(n)} ${CH}L${X(0)} ${CH}Z" fill="url(#cg)"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function qrSvg(sym){
+  const r=rng(hash(sym+'qr')),N=25,m=[];
+  for(let y=0;y<N;y++){m.push([]);for(let x=0;x<N;x++)m[y].push(r()>.52)}
+  const fin=(ox,oy)=>{for(let y=-1;y<8;y++)for(let x=-1;x<8;x++){const X=ox+x,Y=oy+y;if(X<0||Y<0||X>=N||Y>=N)continue;const edge=x<0||y<0||x>6||y>6;const ring=x===0||y===0||x===6||y===6;const core=x>=2&&x<=4&&y>=2&&y<=4;m[Y][X]=!edge&&(ring||core)}};
+  fin(0,0);fin(N-7,0);fin(0,N-7);
+  let s=`<svg viewBox="-2 -2 ${N+4} ${N+4}"><rect x="-2" y="-2" width="${N+4}" height="${N+4}" fill="#fff"/>`;
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(m[y][x])s+=`<rect x="${x}" y="${y}" width="1.02" height="1.02" fill="#10151d"/>`;
+  return s+'</svg>';
+}
+
+/* ---------- router / render ---------- */
+let V={name:'home'},D={sym:'BTC',days:7},SW={from:'ETH',to:'USDT',amt:''},SO=false;
+const main=$('#main');
+function go(name,sym){
+  V={name};
+  if(name==='detail')D={sym,days:7};
+  main.scrollTop=0;render();
+}
+function render(){
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===V.name||(V.name==='detail'&&b.dataset.v==='home')));
+  if(V.name==='home')main.innerHTML=renderHome();
+  else if(V.name==='detail'){main.innerHTML=renderDetail();loadChart()}
+  else if(V.name==='swap'){main.innerHTML=renderSwap();swCalc()}
+  else main.innerHTML='<h2 class="ttl">Aktivität</h2>'+actList(S.act);
+}
+
+function row(c){
+  const p=M.p[c.sym],b=S.bal[c.sym]||0,up=p.chg>=0;
+  return `<button class="coin" onclick="go('detail','${c.sym}')">${ico(c)}<span class="nm"><b>${c.name}</b><small>${amt(b)} ${c.sym}</small></span><span class="sp">${spark(M.sp[c.sym],up)}</span><span class="vl"><b id="rv-${c.sym}">${usd(b*p.usd)}</b><small id="rc-${c.sym}" class="${up?'up':'dn'}">${pct(p.chg)}</small></span></button>`;
+}
+function renderHome(){
+  const t=total();
+  const sorted=COINS.slice().sort((a,b)=>(S.bal[b.sym]||0)*M.p[b.sym].usd-(S.bal[a.sym]||0)*M.p[a.sym].usd);
+  return `<section class="hero"><div class="lbl">Gesamtguthaben</div><div class="bal" id="hbal">${usd(t.v)}</div><div class="delta ${t.d>=0?'up':'dn'}" id="hd">${deltaTxt(t)}</div></section>
+  <div class="actions">
+    <button class="ab" onclick="openSend()"><i>↑</i>Senden</button>
+    <button class="ab" onclick="openRecv()"><i>↓</i>Empfangen</button>
+    <button class="ab" onclick="go('swap')"><i>⇄</i>Tauschen</button>
+    <button class="ab" onclick="openFund()"><i>+</i>Aufladen</button>
+  </div>
+  <h3>Deine Token</h3><div class="list">${sorted.map(row).join('')}</div>
+  <button class="link" onclick="openReset()">Demo zurücksetzen</button>`;
+}
+function liveUpd(){
+  if(V.name!=='home'||!$('#hbal'))return;
+  const t=total();
+  $('#hbal').textContent=usd(t.v);
+  const d=$('#hd');d.className='delta '+(t.d>=0?'up':'dn');d.textContent=deltaTxt(t);
+  COINS.forEach(c=>{
+    const p=M.p[c.sym],b=S.bal[c.sym]||0,a=$('#rv-'+c.sym),q=$('#rc-'+c.sym);
+    if(a)a.textContent=usd(b*p.usd);
+    if(q){q.textContent=pct(p.chg);q.className=p.chg>=0?'up':'dn'}
+  });
+}
+
+/* detail */
+function renderDetail(){
+  const c=BY[D.sym],p=M.p[c.sym],b=S.bal[c.sym]||0,up=p.chg>=0;
+  const mine=S.act.filter(a=>a.sym===c.sym||a.to===c.sym).slice(0,6);
+  return `<div class="dh"><button class="back" onclick="go('home')" aria-label="Zurück">‹</button><div class="row">${ico(c,30)}<b>${c.name}</b></div><span style="width:36px"></span></div>
+  <div class="dp"><div class="bal" id="dP">${usdp(p.usd)}</div><div class="delta ${up?'up':'dn'}" id="dC">${pct(p.chg)}  ·  24 Std.</div></div>
+  <div class="chart" id="chbox"><div class="ld">Chart wird geladen…</div></div>
+  <div class="rng">${RANGES.map(r=>`<button class="${r[1]===D.days?'on':''}" onclick="setRange(${r[1]})">${r[0]}</button>`).join('')}</div>
+  <div class="card"><div class="sm">Dein Guthaben</div><div class="row between"><b class="big2">${usd(b*p.usd)}</b><span>${amt(b)} ${c.sym}</span></div></div>
+  <div class="actions three">
+    <button class="ab" onclick="openSend('${c.sym}')"><i>↑</i>Senden</button>
+    <button class="ab" onclick="openRecv('${c.sym}')"><i>↓</i>Empfangen</button>
+    <button class="ab" onclick="swFrom('${c.sym}')"><i>⇄</i>Tauschen</button>
+  </div>
+  <h3>Aktivität</h3>${actList(mine)}`;
+}
+function setRange(d){D.days=d;render()}
+function setHead(price,chg,label){
+  const a=$('#dP'),b=$('#dC');if(!a||!b)return;
+  a.textContent=usdp(price);b.className='delta '+(chg>=0?'up':'dn');b.textContent=pct(chg)+'  ·  '+label;
+}
+async function loadChart(){
+  const sym=D.sym,days=D.days;
+  const v=await getSeries(sym,days);
+  if(V.name!=='detail'||D.sym!==sym||D.days!==days)return;
+  const box=$('#chbox');if(!box)return;
+  const up=v[v.length-1]>=v[0],col=up?UP:DN;
+  box.innerHTML=chartSvg(v,col)+'<div id="cl" class="cl"></div><div id="cd" class="cd"></div>';
+  attach(v,col);
+  setHead(v[v.length-1],(v[v.length-1]/v[0]-1)*100,RLBL[days]);
+}
+function attach(v,col){
+  const box=$('#chbox'),cl=$('#cl'),cd=$('#cd'),last=v.length-1;
+  const mn=Math.min(...v),mx=Math.max(...v),rg=(mx-mn)||1;
+  const show=e=>{
+    const r=box.getBoundingClientRect();
+    const f=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),i=Math.round(f*last);
+    const xf=(CP+(CW-2*CP)*i/last)/CW,yf=(CP+(CH-2*CP)*(1-(v[i]-mn)/rg))/CH;
+    cl.style.cssText='display:block;left:'+xf*100+'%';
+    cd.style.cssText='display:block;background:'+col+';left:'+xf*100+'%;top:'+yf*100+'%';
+    setHead(v[i],(v[i]/v[0]-1)*100,RLBL[D.days]);
+  };
+  const hide=()=>{cl.style.display='none';cd.style.display='none';setHead(v[last],(v[last]/v[0]-1)*100,RLBL[D.days])};
+  box.onpointermove=show;box.onpointerdown=show;box.onpointerleave=hide;box.onpointercancel=hide;
+  box.onpointerup=e=>{if(e.pointerType!=='mouse')hide()};
+}
+
+/* activity */
+function actList(a){
+  if(!a.length)return '<div class="empty">Noch keine Aktivität</div>';
+  return '<div class="list">'+a.map(x=>{
+    const c=BY[x.sym];let t,s,r,cl='';
+    if(x.t==='fund'){t='Demo-Guthaben';s=when(x.ts);r='+'+amt(x.a)+' '+x.sym;cl='up'}
+    else if(x.t==='send'){t='Gesendet';s=when(x.ts)+' an '+short(x.addr);r='−'+amt(x.a)+' '+x.sym}
+    else{t='Getauscht';s=when(x.ts)+', '+x.sym+' zu '+x.to;r='+'+amt(x.b)+' '+x.to;cl='up'}
+    return `<div class="coin act">${ico(c,36)}<span class="nm"><b>${t}</b><small>${esc(s)}</small></span><span class="vl"><b class="${cl}">${esc(r)}</b></span></div>`;
+  }).join('')+'</div>';
+}
+
+/* ---------- swap ---------- */
+function renderSwap(){
+  return `<h2 class="ttl">Tauschen</h2>
+  <div class="swcard"><div class="row between"><span class="sm">Du zahlst</span><button class="chip" onclick="swMax()">Max</button></div>
+    <div class="row"><input id="swAmt" inputmode="decimal" placeholder="0" autocomplete="off" value="${esc(SW.amt)}" oninput="swIn(this.value)"><select onchange="swSet('from',this.value)" aria-label="Von">${coinOpts(SW.from).replace(/ \(.*?\)</g,'<')}</select></div>
+    <div class="sm" id="swBal"></div></div>
+  <button class="flip" onclick="swFlip()" aria-label="Richtung tauschen">⇅</button>
+  <div class="swcard"><div class="sm">Du erhältst (ca.)</div>
+    <div class="row"><div class="big" id="swOut">0</div><select onchange="swSet('to',this.value)" aria-label="Nach">${coinOpts(SW.to).replace(/ \(.*?\)</g,'<')}</select></div></div>
+  <div class="info" id="swInfo"></div>
+  <button class="primary" id="swGo" onclick="swDo()">Tauschen</button>`;
+}
+function swSet(k,v){const prev=SW[k];SW[k]=v;if(SW.from===SW.to)SW[k==='from'?'to':'from']=prev;render()}
+function swFrom(sym){SW.from=sym;if(SW.to===sym)SW.to=COINS.find(c=>c.sym!==sym).sym;go('swap')}
+function swFlip(){const t=SW.from;SW.from=SW.to;SW.to=t;render()}
+function swIn(v){SW.amt=v;swCalc()}
+function swMax(){const b=S.bal[SW.from]||0;SW.amt=b>0?String(Math.floor(b*1e8)/1e8):'';const i=$('#swAmt');if(i)i.value=SW.amt;swCalc()}
+function swCalc(){
+  const a=num(SW.amt),pf=M.p[SW.from].usd,pt=M.p[SW.to].usd,b=S.bal[SW.from]||0;
+  const out=a*pf/pt*(1-.005);
+  $('#swOut').textContent=a>0?amt(out):'0';
+  $('#swBal').textContent='Guthaben: '+amt(b)+' '+SW.from;
+  $('#swInfo').innerHTML=`<div class="row between"><span>Kurs</span><span>1 ${SW.from} ≈ ${amt(pf/pt)} ${SW.to}</span></div><div class="row between"><span>Gebühr</span><span>0,5 %</span></div>`;
+  const g=$('#swGo');g.disabled=!(a>0&&a<=b+1e-12);g.textContent=a>b+1e-12?'Nicht genug Guthaben':'Tauschen';
+}
+function swDo(){
+  const a=num(SW.amt),b=S.bal[SW.from]||0;
+  if(!(a>0&&a<=b+1e-12))return;
+  const out=a*M.p[SW.from].usd/M.p[SW.to].usd*(1-.005);
+  S.bal[SW.from]=Math.max(0,b-a);S.bal[SW.to]=(S.bal[SW.to]||0)+out;
+  addAct({t:'swap',sym:SW.from,a,to:SW.to,b:out});save();
+  toast('Getauscht: '+amt(a)+' '+SW.from+' zu '+amt(out)+' '+SW.to);
+  SW.amt='';render();
+}
+
+/* ---------- sheets ---------- */
+function sheet(html){$('#sheet').innerHTML=`<div class="bk" onclick="closeSheet()"></div><div class="sh"><div class="grab"></div>${html}</div>`;SO=true}
+function closeSheet(){$('#sheet').innerHTML='';SO=false}
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2400)}
+
+/* send */
+function openSend(sym){
+  sheet(`<h3>Senden</h3>
+  <label for="sdC">Token</label><select id="sdC" onchange="sdUpd()">${coinOpts(sym||'SOL')}</select>
+  <div class="sm" id="sdB"></div>
+  <label for="sdA">Empfänger-Adresse</label><input id="sdA" placeholder="Adresse einfügen" autocomplete="off" spellcheck="false">
+  <label for="sdV">Betrag</label><div class="row"><input id="sdV" inputmode="decimal" placeholder="0" autocomplete="off" oninput="sdUpd()"><button class="chip" onclick="sdMax()">Max</button></div>
+  <div class="sm" id="sdI" style="margin-top:6px"></div>
+  <button class="primary" id="sdGo" onclick="sdDo()">Senden</button>`);
+  sdUpd();
+}
+function sdUpd(){
+  const s=$('#sdC').value,b=S.bal[s]||0,a=num($('#sdV').value),fee=a*.001;
+  $('#sdB').textContent='Verfügbar: '+amt(b)+' '+s+' (≈ '+usd(b*M.p[s].usd)+')';
+  $('#sdI').textContent=a>0?'Gebühr 0,1 % ('+amt(fee)+' '+s+'), Wert ≈ '+usd(a*M.p[s].usd):'Gebühr: 0,1 %';
+  const g=$('#sdGo');g.disabled=!(a>0&&a+fee<=b+1e-12);g.textContent=a>0&&a+fee>b+1e-12?'Nicht genug Guthaben':'Senden';
+}
+function sdMax(){const s=$('#sdC').value,b=S.bal[s]||0;$('#sdV').value=b>0?String(Math.floor(b/1.001*1e8)/1e8):'';sdUpd()}
+function sdDo(){
+  const s=$('#sdC').value,addr=$('#sdA').value.trim(),a=num($('#sdV').value),fee=a*.001,b=S.bal[s]||0;
+  if(addr.length<6){toast('Bitte eine Adresse eingeben');return}
+  if(!(a>0&&a+fee<=b+1e-12))return;
+  S.bal[s]=Math.max(0,b-a-fee);addAct({t:'send',sym:s,a,addr});save();
+  closeSheet();toast('Gesendet: '+amt(a)+' '+s);render();
+}
+
+/* receive */
+function openRecv(sym){
+  sheet(`<h3>Empfangen</h3>
+  <label for="rcC">Token</label><select id="rcC" onchange="rcUpd()">${coinOpts(sym||'BTC')}</select>
+  <div class="qr" id="rcQ"></div><div class="addr" id="rcA"></div>
+  <button class="primary" onclick="rcCopy()">Adresse kopieren</button>
+  <div class="sm c">Demo-Adresse und Platzhalter-Code, nicht scannbar. Nicht für echte Überweisungen verwenden.</div>`);
+  rcUpd();
+}
+function rcUpd(){const s=$('#rcC').value;$('#rcQ').innerHTML=qrSvg(s);$('#rcA').textContent=addrOf(s)}
+function rcCopy(){
+  const t=$('#rcA').textContent;
+  try{navigator.clipboard.writeText(t).then(()=>toast('Adresse kopiert'),()=>toast('Kopieren nicht möglich'))}catch(e){toast('Kopieren nicht möglich')}
+}
+
+/* fund (demo balance) */
+function openFund(sym){
+  sheet(`<h3>Demo-Guthaben hinzufügen</h3><div class="sm">Spielgeld ohne echten Wert.</div>
+  <label for="fdC">Token</label><select id="fdC" onchange="fdUpd()">${coinOpts(sym||'BTC')}</select>
+  <label for="fdV">Betrag</label><div class="row"><input id="fdV" inputmode="decimal" placeholder="0" autocomplete="off" oninput="fdUpd()"><select id="fdU" onchange="fdUpd()" style="width:110px"><option value="usd">in USD</option><option value="coin">in Token</option></select></div>
+  <div class="chips">${[100,1000,10000,100000,1000000].map(v=>`<button class="chip" onclick="fdQ(${v})">$${nf(v,0,0)}</button>`).join('')}</div>
+  <div class="sm" id="fdI"></div>
+  <button class="primary" id="fdGo" onclick="fdDo()">Hinzufügen</button>`);
+  fdUpd();
+}
+function fdAmt(){const s=$('#fdC').value,v=num($('#fdV').value);return $('#fdU').value==='usd'?v/M.p[s].usd:v}
+function fdQ(v){$('#fdU').value='usd';$('#fdV').value=String(v);fdUpd()}
+function fdUpd(){
+  const s=$('#fdC').value,a=fdAmt(),ok=a>0&&a<1e13;
+  $('#fdI').textContent=ok?'Du erhältst '+amt(a)+' '+s+' (≈ '+usd(a*M.p[s].usd)+')':'Betrag eingeben oder oben auswählen';
+  $('#fdGo').disabled=!ok;
+}
+function fdDo(){
+  const s=$('#fdC').value,a=fdAmt();
+  if(!(a>0&&a<1e13))return;
+  S.bal[s]=(S.bal[s]||0)+a;addAct({t:'fund',sym:s,a});save();
+  closeSheet();toast('+'+amt(a)+' '+s+' hinzugefügt');render();
+}
+
+/* reset */
+function openReset(){
+  sheet(`<h3>Demo zurücksetzen?</h3><div class="sm" style="margin-top:6px">Alle Demo-Guthaben und der Verlauf werden gelöscht. Danach startet die Wallet wieder mit dem Standard-Guthaben.</div>
+  <button class="primary" onclick="doReset()">Zurücksetzen</button><button class="secondary" onclick="closeSheet()">Abbrechen</button>`);
+}
+function doReset(){S=defaults();save();closeSheet();toast('Demo zurückgesetzt');render()}
+
+/* ---------- boot ---------- */
+simInit();
+render();
+fetchMarkets(true);
+setInterval(()=>{
+  if(M.live)return;
+  COINS.forEach(c=>{M.p[c.sym].usd*=1+(Math.random()-.5)*c.vol*.4});
+  liveUpd();
+},4000);
+setInterval(()=>fetchMarkets(!M.live&&V.name==='home'&&!SO),60000);
+</script>
+</body>
+</html>
